@@ -9,6 +9,14 @@ export const Wrapper = styled.section`
   color: #000;
   font-family: "Montserrat", sans-serif;
   font-size: 0.875rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.13rem;
+
+  &:not(:last-child) {
+    margin-bottom: 0.56rem;
+  }
 `;
 
 export const Header = styled.header`
