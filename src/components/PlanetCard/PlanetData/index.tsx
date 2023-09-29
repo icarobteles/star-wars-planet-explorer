@@ -17,7 +17,9 @@ export function PlanetData({ data }: PlanetDataProps) {
     <Wrapper>
       <Image src={imageUrl || ""} alt={`Planet ${name}`} />
       <Content>
-        <PlanetName>Planet: {name}</PlanetName>
+        <PlanetName>
+          Planet: <strong>{name}</strong>
+        </PlanetName>
         <PlanetList climate={climate} terrain={terrain} population={population} />
       </Content>
     </Wrapper>

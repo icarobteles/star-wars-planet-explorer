@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Wrapper = styled.section`
   display: flex;
   gap: 0.41rem;
+  margin-bottom: 1.69rem;
 `;
 
 export const Image = styled.img`
