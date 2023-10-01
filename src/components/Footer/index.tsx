@@ -6,7 +6,7 @@ export function Footer() {
     <Wrapper>
       <p>STARUARS LTDA | CNPJ: 77.777.777/0007-07 | 2023 | Todos os direitos reservados</p>
       <hr />
-      <img src={StarWarsLogo} alt="Star Wars Logo" />
+      <img aria-label="Star Wars Logo" src={StarWarsLogo} alt="Star Wars Logo" />
     </Wrapper>
   );
 }

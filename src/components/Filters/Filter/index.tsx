@@ -14,7 +14,7 @@ export function Filter({ fieldname, order, setOrder }: FilterProps) {
       title={`Toggle Order Filter by ${fieldname}`}
       aria-label={`Toggle Order Filter by ${fieldname}`}
     >
-      <OrderIcon order={order} />
+      <OrderIcon role="img" aria-label={`${order} icon`} order={order} />
       {fieldname}
     </Wrapper>
   );

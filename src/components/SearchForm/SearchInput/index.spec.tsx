@@ -9,7 +9,6 @@ describe("SearchInput Component", () => {
     const inputElement = screen.getByPlaceholderText("Enter the name in the planet");
     expect(inputElement).toBeInTheDocument();
     expect(inputElement).toBeRequired();
-    expect(inputElement).toHaveAttribute("aria-required", "true");
   });
 
   it("should use a descriptive label", () => {

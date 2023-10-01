@@ -13,7 +13,6 @@ export function SearchInput() {
         id="search"
         name="search"
         required
-        aria-required="true"
         aria-label="Search for a planet by name"
       />
     </>
