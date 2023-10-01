@@ -27,6 +27,9 @@ export const Wrapper = styled.button`
     background-image: url(${SearchIcon});
   }
 
+  [data-loading] > i {
+  }
+
   &:hover {
     background-color: rgba(150, 18, 18, 1);
   }

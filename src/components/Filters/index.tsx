@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Filter } from "./Filter";
 import { Legend, LegendIcon, Wrapper } from "./styles";
 
@@ -9,7 +9,12 @@ interface IFilterBy {
   population: OrderBy;
 }
 
-export function Filters() {
+interface FiltersProps {
+  sortByName: (order: OrderBy) => void;
+  sortByPopulation: (order: OrderBy) => void;
+}
+
+export function Filters({ sortByName, sortByPopulation }: FiltersProps) {
   const [filterBy, setFilterBy] = useState<IFilterBy>({
     name: "desc",
     population: "desc",
@@ -23,6 +28,14 @@ export function Filters() {
       };
     });
   };
+
+  useEffect(() => {
+    sortByName(filterBy.name);
+  }, [filterBy.name]);
+
+  useEffect(() => {
+    sortByPopulation(filterBy.population);
+  }, [filterBy.population]);
 
   return (
     <Wrapper>

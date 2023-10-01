@@ -6,32 +6,35 @@ import { Item, ItemIcon, ItemInfo, Wrapper } from "./styles";
 import { capitalizeString } from "@/util/capitalizeString";
 
 interface PlanetListProps {
-  climate: string;
-  terrain: string;
-  population: number | null;
+  climate?: string;
+  terrain?: string;
+  population?: number | string;
 }
 
 export function PlanetList({ climate, terrain, population }: PlanetListProps) {
+  const capitalizedClimate = climate ? capitalizeString(climate) : "";
+  const capitalizedTerrain = terrain ? capitalizeString(terrain) : "";
+
   return (
     <Wrapper>
       <Item>
         <ItemIcon iconUrl={ClimateIcon} />
         <ItemInfo>
-          <strong>Climate: </strong> {capitalizeString(climate)}
+          <strong>Climate: </strong> {capitalizedClimate}
         </ItemInfo>
       </Item>
 
       <Item>
         <ItemIcon iconUrl={TerrainIcon} />
         <ItemInfo>
-          <strong>Terrain: </strong> {capitalizeString(terrain)}
+          <strong>Terrain: </strong> {capitalizedTerrain}
         </ItemInfo>
       </Item>
 
       <Item>
         <ItemIcon iconUrl={PopulationIcon} />
         <ItemInfo>
-          <strong>Population: </strong> {population || "Unknown"}
+          <strong>Population: </strong> {population ?? ""}
         </ItemInfo>
       </Item>
     </Wrapper>

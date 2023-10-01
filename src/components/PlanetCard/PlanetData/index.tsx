@@ -7,20 +7,19 @@ interface PlanetDataProps {
     imageUrl: string | null;
     climate: string;
     terrain: string;
-    population: number | null;
-  };
+    population: number | string;
+  } | null;
 }
 export function PlanetData({ data }: PlanetDataProps) {
-  const { name, imageUrl, climate, terrain, population } = data;
-
+  console.log(data?.imageUrl);
   return (
     <Wrapper>
-      <Image src={imageUrl || ""} alt={`Planet ${name}`} />
+      <Image src={data?.imageUrl || ""} alt={`Planet ${name}`} />
       <Content>
         <PlanetName>
-          Planet: <strong>{name}</strong>
+          Planet: <strong>{data?.name}</strong>
         </PlanetName>
-        <PlanetList climate={climate} terrain={terrain} population={population} />
+        <PlanetList climate={data?.climate} terrain={data?.terrain} population={data?.population} />
       </Content>
     </Wrapper>
   );

@@ -3,23 +3,31 @@ import { SearchButton } from "./SearchButton";
 import { SearchInput } from "./SearchInput";
 import { Wrapper } from "./styles";
 
-export function SearchForm() {
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+interface SearchFormProps {
+  loading: boolean;
+  search: (searchValue: string) => Promise<void>;
+}
+
+export function SearchForm({ loading, search }: SearchFormProps) {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
+    if (loading) return;
+
+    console.log("passou aqui");
     const form = event.currentTarget;
     const elements = form.elements;
 
     const inputSearch = elements.namedItem("search") as HTMLInputElement;
-    const search = inputSearch.value;
+    const searchValue = inputSearch.value;
 
-    console.log({ search });
+    await search(searchValue);
   };
 
   return (
     <Wrapper onSubmit={handleSubmit}>
       <SearchInput />
-      <SearchButton />
+      <SearchButton loading={loading} />
     </Wrapper>
   );
 }

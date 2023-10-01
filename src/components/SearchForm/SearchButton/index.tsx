@@ -1,8 +1,12 @@
 import { Wrapper } from "./styles";
 
-export function SearchButton() {
+interface SearchButtonProps {
+  loading: boolean;
+}
+
+export function SearchButton({ loading }: SearchButtonProps) {
   return (
-    <Wrapper type="submit" title="Search">
+    <Wrapper data-loading={loading} type="submit" title="Search">
       <i></i>
       Search
     </Wrapper>

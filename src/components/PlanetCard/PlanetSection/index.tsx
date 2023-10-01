@@ -1,7 +1,7 @@
 import { Content, Header, HeaderIcon, HeaderTitle, Wrapper } from "./styles";
 
 interface PlanetSectionProps {
-  content: string;
+  content: string | null;
   iconUrl: string;
   title: string;
 }
@@ -12,7 +12,7 @@ export function PlanetSection({ content, iconUrl, title }: PlanetSectionProps) {
         <HeaderIcon iconUrl={iconUrl} />
         <HeaderTitle>{title}:</HeaderTitle>
       </Header>
-      <Content>{content}</Content>
+      <Content>{content || "Carregando..."}</Content>
     </Wrapper>
   );
 }
