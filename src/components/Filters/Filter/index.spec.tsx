@@ -9,7 +9,7 @@ describe("Filter Component", () => {
     );
 
     expect(getByText("Name")).toBeInTheDocument();
-    expect(getByTitle("Filter by Name")).toBeInTheDocument();
+    expect(getByTitle("Toggle Order Filter by Name")).toBeInTheDocument();
   });
 
   it("should call the setOrder function when clicked", () => {
