@@ -10,7 +10,7 @@ export function PlanetLink({ href, name }: PlanetLinkProps) {
   return (
     <Wrapper>
       <Link to={href} title={name} aria-label={name}>
-        <h4> {name}</h4>
+        <h4>{name}</h4>
         <i aria-label={`${name} Icon`}></i>
       </Link>
     </Wrapper>
