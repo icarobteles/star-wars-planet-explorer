@@ -5,14 +5,7 @@ import { IPlanetStorage, IPlanet } from "@/interfaces";
 import { fetchCurrentPlanetAdditionalDataInApiService } from "@/services";
 import { getIdFromUrl } from "@/util/getIdFromUrl";
 import { getPlanetImageUrl } from "@/util/getPlanetImageUrl";
-import {
-  PropsWithChildren,
-  createContext,
-  useCallback,
-  useContext,
-  useMemo,
-  useState,
-} from "react";
+import { PropsWithChildren, createContext, useContext, useMemo, useState } from "react";
 
 type IOrder = "asc" | "desc";
 type IBy = "name" | "population";

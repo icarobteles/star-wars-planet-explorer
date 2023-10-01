@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ISwapiFilm, ISwapiResident, showFilmService, showResidentService } from "@/api";
 import { getIdFromUrl } from "@/util/getIdFromUrl";
 
