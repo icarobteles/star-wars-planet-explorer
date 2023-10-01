@@ -10,7 +10,9 @@ export const Wrapper = styled.div`
   align-items: center;
   gap: 2.33rem;
 
-  overflow: hidden;
+  overflow-x: hidden;
+
+  color: #fff;
 
   @media (min-width: 1024px) {
     padding: 4.69rem;
@@ -69,6 +71,36 @@ export const MainContentTitle = styled.h2`
 
   @media (min-width: 1024px) {
     font-size: 1.25rem;
+  }
+`;
+
+export const MainPlanetsList = styled.ul`
+  overflow-y: auto;
+  max-height: 200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-right: 5px;
+
+  .loading-bar {
+    margin-top: 10px;
+  }
+
+  &::-webkit-scrollbar {
+    width: 7px; /* width of the entire scrollbar */
+    border-radius: 0.3125rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.7); /* color of the tracking area */
+    border-radius: 0.3125rem;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #de1212; /* color of the scroll thumb */
+    border-radius: calc(0.3125rem - 2px); /* roundness of the scroll thumb */
+    border: 2px solid rgba(0, 0, 0, 0.7); /* creates padding around scroll thumb */
   }
 `;
 

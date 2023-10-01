@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
   align-items: center;
   gap: 2.33rem;
 
-  overflow: hidden;
+  overflow-x: hidden;
 
   @media (min-width: 1024px) {
     padding: 4.56rem 1.1875rem 4.94 1.1875rem;
