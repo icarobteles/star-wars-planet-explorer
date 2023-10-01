@@ -1,1 +1,1 @@
-export * from "./findPlanetsInStorageService";
+export * from "./fetchCurrentPlanetAdditionalDataInApi";

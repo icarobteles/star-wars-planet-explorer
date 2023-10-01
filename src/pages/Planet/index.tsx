@@ -1,5 +1,5 @@
 import { PlanetCard } from "@/components";
-import { Link, Wrapper } from "./styles";
+import { Wrapper } from "./styles";
 import { useParams } from "react-router-dom";
 import { Logo, LogoSubtitle, LogoTitle } from "@/styles";
 

@@ -10,11 +10,10 @@ interface IFilterBy {
 }
 
 interface FiltersProps {
-  sortByName: (order: OrderBy) => void;
-  sortByPopulation: (order: OrderBy) => void;
+  sort: (by: "name" | "population", order: "asc" | "desc") => void;
 }
 
-export function Filters({ sortByName, sortByPopulation }: FiltersProps) {
+export function Filters({ sort }: FiltersProps) {
   const [filterBy, setFilterBy] = useState<IFilterBy>({
     name: "desc",
     population: "desc",
@@ -30,17 +29,18 @@ export function Filters({ sortByName, sortByPopulation }: FiltersProps) {
   };
 
   useEffect(() => {
-    sortByName(filterBy.name);
+    console.log("oi");
+    sort("name", filterBy.name);
   }, [filterBy.name]);
 
   useEffect(() => {
-    sortByPopulation(filterBy.population);
+    sort("population", filterBy.population);
   }, [filterBy.population]);
 
   return (
     <Wrapper>
       <Legend>
-        <LegendIcon />
+        <LegendIcon role="img" aria-label="Filter Icon" />
         Filter:
       </Legend>
       <Filter fieldname="Name" order={filterBy.name} setOrder={() => toggleOrderFilter("name")} />

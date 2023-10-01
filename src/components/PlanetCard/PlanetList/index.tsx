@@ -8,7 +8,7 @@ import { capitalizeString } from "@/util/capitalizeString";
 interface PlanetListProps {
   climate?: string;
   terrain?: string;
-  population?: number | string;
+  population?: number | null;
 }
 
 export function PlanetList({ climate, terrain, population }: PlanetListProps) {
@@ -34,7 +34,7 @@ export function PlanetList({ climate, terrain, population }: PlanetListProps) {
       <Item>
         <ItemIcon iconUrl={PopulationIcon} />
         <ItemInfo>
-          <strong>Population: </strong> {population ?? ""}
+          <strong>Population: </strong> {population ?? "Unknown"}
         </ItemInfo>
       </Item>
     </Wrapper>

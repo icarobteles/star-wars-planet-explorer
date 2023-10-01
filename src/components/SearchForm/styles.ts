@@ -5,4 +5,9 @@ export const Wrapper = styled.form`
   display: flex;
   flex-direction: column;
   gap: 0.44rem;
+
+  .error {
+    font-size: 0.75rem;
+    color: #de1212;
+  }
 `;

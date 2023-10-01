@@ -3,52 +3,57 @@ import FilmsIcon from "/icons/films.svg";
 import ResidentsIcon from "/icons/residents.svg";
 import { PlanetSection } from "./PlanetSection";
 import { PlanetData } from "./PlanetData";
-import { usePlanet } from "@/hooks/usePlanet";
-import { LocalStorage } from "@/adapters";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useModal } from "@/hooks";
 import { useEffect, useState } from "react";
+import { usePlanets } from "@/providers/planets";
+import { appPlanetsStorage } from "@/main";
 
 interface PlanetCardProps {
   id: string;
 }
 
 export function PlanetCard({ id }: PlanetCardProps) {
-  const storage = new LocalStorage();
-  const { planet, updatePlanetName, loadingAdditionalData, loading, filmsCount } = usePlanet(
-    id as string,
-    storage,
-  );
+  const {
+    currentPlanet,
+    loadingCurrentPlanet,
+    updateCurrentPlanetName,
+    currentPlanetFilmsCount,
+    fetchCurrentPlanetData,
+  } = usePlanets();
 
   const { openModal, closeModal, modalIsOpen } = useModal();
   const [inputValue, setInputValue] = useState("");
 
-  const data = planet
-    ? {
-        name: planet.name,
-        imageUrl: planet.imageUrl,
-        climate: planet.climate,
-        terrain: planet.terrain,
-        population: planet.population,
-      }
-    : null;
+  const data = currentPlanet ? currentPlanet.data : null;
+  const navigate = useNavigate();
 
   useEffect(() => {
-    setInputValue(planet.name);
-  }, [planet]);
+    setInputValue(data?.name || "");
+  }, [data]);
+
+  useEffect(() => {
+    try {
+      fetchCurrentPlanetData(id, appPlanetsStorage);
+    } catch (error) {
+      return navigate("/404");
+    }
+  }, [id, navigate]);
 
   return (
     <Wrapper>
-      <PlanetData data={data} />
+      <PlanetData data={data} loading={loadingCurrentPlanet.data} />
       <PlanetSection
         iconUrl={ResidentsIcon}
         title="Residents"
-        content={planet?.residents ? planet.residents.join(", ") : null}
+        content={data?.residents ? data.residents.join(", ") : null}
+        loading={loadingCurrentPlanet.additionalData}
       />
       <PlanetSection
         iconUrl={FilmsIcon}
-        title={`Films (${filmsCount})`}
-        content={planet?.films ? planet.films.join(", ") : null}
+        title={`Films (${currentPlanetFilmsCount})`}
+        content={data?.films ? data.films.join(", ") : null}
+        loading={loadingCurrentPlanet.additionalData}
       />
       <Actions>
         <button onClick={openModal} type="button" title="Editar Planeta">
@@ -77,7 +82,7 @@ export function PlanetCard({ id }: PlanetCardProps) {
             </ModalButton>
             <ModalButton
               onClick={() => {
-                updatePlanetName(inputValue);
+                updateCurrentPlanetName(inputValue);
                 closeModal();
               }}
               type="button"

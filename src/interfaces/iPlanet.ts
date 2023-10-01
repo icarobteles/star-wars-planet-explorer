@@ -1,10 +1,10 @@
 export interface IPlanet {
   id: string;
   name: string;
-  imageUrl: string | null;
+  imageUrl: string;
   climate: string;
   terrain: string;
-  population: number | string;
+  population: number | null;
   residents: string[];
   films: string[];
 }

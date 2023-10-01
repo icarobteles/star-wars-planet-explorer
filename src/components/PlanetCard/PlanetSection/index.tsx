@@ -4,15 +4,16 @@ interface PlanetSectionProps {
   content: string | null;
   iconUrl: string;
   title: string;
+  loading: boolean;
 }
-export function PlanetSection({ content, iconUrl, title }: PlanetSectionProps) {
+export function PlanetSection({ content, iconUrl, loading, title }: PlanetSectionProps) {
   return (
     <Wrapper>
       <Header>
         <HeaderIcon iconUrl={iconUrl} />
         <HeaderTitle>{title}:</HeaderTitle>
       </Header>
-      <Content>{content || "Carregando..."}</Content>
+      <Content>{loading ? "Carregando..." : content}</Content>
     </Wrapper>
   );
 }

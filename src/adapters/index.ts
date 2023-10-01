@@ -1,2 +1,2 @@
-export * from "./storage/InMemoryStorage";
-export * from "./storage/LocalStorage";
+export * from "./storage/inMemoryStorage";
+export * from "./storage/localStorage";
