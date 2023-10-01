@@ -1,5 +1,21 @@
 import { Wrapper } from "./styles";
 
 export function SearchInput() {
-  return <Wrapper placeholder="Enter the name in the planet" type="text" name="search" />;
+  return (
+    <>
+      <label className="sr-only" htmlFor="search">
+        Enter the name in the planet
+      </label>
+      <Wrapper
+        placeholder="Enter the name in the planet"
+        type="text"
+        role="search"
+        id="search"
+        name="search"
+        required
+        aria-required="true"
+        aria-label="Search for a planet by name"
+      />
+    </>
+  );
 }
