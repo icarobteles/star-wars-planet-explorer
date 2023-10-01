@@ -1,5 +1,6 @@
 import { PropsWithChildren } from "react";
+import { PlanetsProvider } from "./planets";
 
 export function Providers({ children }: PropsWithChildren) {
-  return <>{children}</>;
+  return <PlanetsProvider>{children}</PlanetsProvider>;
 }

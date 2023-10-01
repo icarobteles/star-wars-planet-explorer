@@ -1,4 +1,6 @@
 import { createGlobalStyle } from "styled-components";
+import AppBg from "/images/bg.jpg";
+import AppBg2x from "/images/bg@2x.jpg";
 
 export const GlobalStyles = createGlobalStyle`
 
@@ -36,7 +38,42 @@ export const GlobalStyles = createGlobalStyle`
 
   body {
     width: 100vw;
-    min-height: 100vh;
+    height: 100vh;
+    background-image: url(${AppBg});
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    font-family: "Lato", sans-serif;
+
+    @media (min-width: 1024px) {
+      background-image: url(${AppBg2x});
+    }
   }
-  
+
+  .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+
+  #root {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(0deg, #000 -10.63%, rgba(0, 0, 0, 0.00) 85.07%);
+
+    display: grid;
+    grid-template-rows: 1fr 4.125rem; 
+
+    @media (min-width: 1024px) {
+      grid-template-rows: 1fr 5.375rem; 
+    }
+  }
+
 `;
