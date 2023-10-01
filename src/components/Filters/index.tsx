@@ -40,7 +40,7 @@ export function Filters({ sortByName, sortByPopulation }: FiltersProps) {
   return (
     <Wrapper>
       <Legend>
-        <LegendIcon />
+        <LegendIcon aria-label="Filter Icon" />
         Filter:
       </Legend>
       <Filter fieldname="Name" order={filterBy.name} setOrder={() => toggleOrderFilter("name")} />
