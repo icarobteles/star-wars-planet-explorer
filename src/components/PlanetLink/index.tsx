@@ -9,9 +9,9 @@ interface PlanetLinkProps {
 export function PlanetLink({ href, name }: PlanetLinkProps) {
   return (
     <Wrapper>
-      <Link to={href} title={name}>
+      <Link to={href} title={name} aria-label={name}>
         <h4> {name}</h4>
-        <i></i>
+        <i aria-label={`${name} Icon`}></i>
       </Link>
     </Wrapper>
   );
